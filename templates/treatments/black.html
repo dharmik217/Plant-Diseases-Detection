@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant diseases ditection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static\css\style.css" rel="stylesheet">
+<style>
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff; /* White background */
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* Main Container */
+.black-rot-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Header */
+.black-rot-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #49c822, #295c08); /* Blue Gradient */
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Language Switcher */
+.language-switcher {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.language-switcher button {
+    background: linear-gradient(135deg, #49c822, #295c08);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.language-switcher button:hover {
+    background: linear-gradient(135deg, #49c822, #295c08);
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Language Content */
+.language-content {
+    display: none;
+    padding: 20px;
+    background: #f8f9fa; /* Light grey for contrast */
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.language-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Image Styling */
+.disease-image {
+    display: block;
+    margin: 15px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.disease-image:hover {
+    transform: scale(1.05);
+}
+
+/* Treatment Sections */
+.treatment-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: #eef7ff; /* Light blue for soft contrast */
+    border-left: 5px solid #00ff08;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.treatment-section h3 {
+    color: #df950b;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Styled Lists */
+ul {
+    padding-left: 20px;
+    list-style: none;
+}
+
+ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+ul li::before {
+    content: "✔";
+    color: #007BFF;
+    font-weight: bold;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+/* Video & Audio Styling */
+.treatment-video, .treatment-audio {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.treatment-video:hover, .treatment-audio:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .black-rot-container {
+        padding: 20px;
+    }
+
+    .black-rot-header {
+        font-size: 24px;
+        padding: 12px;
+    }
+
+    .language-switcher button {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .treatment-section {
+        padding: 15px;
+    }
+
+    ul li {
+        font-size: 14px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark text-light px-0 py-2">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <span class="fa fa-phone-alt me-2"></span>
+                    <span>+91 9104499432</span>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="far fa-envelope me-2"></span>
+                    <span>plant@gmail.com</span>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="{{ url_for('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h1 class="m-0">Plant Doctor</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url_for('home') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-item nav-link">About</a>
+                <a href="{{ url_for('services') }}" class="nav-item nav-link">Services</a>
+                <a href="{{ url_for('predict') }}" class="nav-item nav-link">Predict</a>
+                <a href="{{ url_for('fertilizer') }}" class="nav-item nav-link">Fertilizer</a>
+                <a href="{{ url_for('treatment') }}" class="nav-item nav-link">Treatment</a>
+                <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+
+    <!-- treatment Start -->
+    <div class="black-rot-container">
+        <header class="black-rot-header">Black Rot - Treatment & Prevention</header>
+        <div class="language-switcher">
+            <button data-lang="en">English</button>
+            <button data-lang="hi">हिन्दी</button>
+            <button data-lang="gu">ગુજરાતી</button>
+        </div>
+        
+        
+        <!-- English Section -->
+        <div class="language-content" id="en">
+            <h2>What is Black Rot?</h2>
+            <img class="disease-image" src="uploads/1.png" alt="Black Rot Disease">
+            <p>Black Rot is a fungal disease caused by <em>Botryosphaeria obtusa</em>. It affects apple trees, leading to circular brown spots on leaves, shriveled fruit, and cankers on branches.</p>
+            <h2>Advanced Treatment Methods</h2>
+            <h3>1️⃣ Chemical Treatments</h3>
+            <ul>
+                <li><strong>Fungicides:</strong> Apply captan, thiophanate-methyl, or myclobutanil sprays in early spring.</li>
+                <li><strong>Copper-based Sprays:</strong> Use to suppress fungal spores before bud break.</li>
+                <li><strong>Pristine Fungicide:</strong> Effective against fruit infection.</li>
+            </ul>
+            <h3>2️⃣ Organic & Natural Treatments</h3>
+            <ul>
+                <li><strong>Neem Oil:</strong> Mix 5ml neem oil per liter of water.</li>
+                <li><strong>Baking Soda Solution:</strong> Mix 1 tbsp baking soda + 1 tsp dish soap + 1 gallon of water.</li>
+                <li><strong>Garlic Extract:</strong> A natural antifungal agent.</li>
+            </ul>
+            <h3>3️⃣ Prevention Methods</h3>
+            <ul>
+                <li><strong>Pruning & Cleaning:</strong> Remove infected leaves and prune branches.</li>
+                <li><strong>Resistant Varieties:</strong> Grow resistant apple varieties like Liberty, Enterprise, and GoldRush.</li>
+                <li><strong>Remove Mummified Fruits:</strong> Discard shriveled fruits from trees and the ground.</li>
+            </ul>
+            <video class="treatment-video" controls>
+                <source src="black_rot_treatment_en.mp4" type="video/mp4">
+            </video>
+            <audio class="treatment-audio" controls>
+                <source src="black_rot_treatment_en.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    
+        <!-- Gujarati Section -->
+        <div class="language-content" id="gu" style="display: none;">
+            <h2>બ્લેક રોટ શું છે?</h2>
+            <img class="disease-image" src="uploads/1.png" alt="Black Rot Disease">
+            <p>બ્લેક રોટ એ <em>Botryosphaeria obtusa</em> ફૂગથી થતા રોગ છે. તે સફરજનના વૃક્ષોને અસર કરે છે.</p>
+            <h2>ઉચ્ચ સ્તરના ઉપચાર</h2>
+            <h3>1️⃣ રાસાયણિક ઉપચાર</h3>
+            <ul>
+                <li><strong>ફંગિસાઇડ્સ:</strong> કેપ્ટાન, થિઓફેનેટ-મિથાઇલ અથવા માયક્લોબ્યુટાનીલ છંટકાવ કરો.</li>
+                <li><strong>કોપર આધારિત સ્પ્રે:</strong> ફૂગના સ્પોરને દમન કરવા માટે વાપરવું.</li>
+                <li><strong>પ્રિસ્ટાઇન ફંગિસાઇડ:</strong> ફળના સંક્રમણ સામે અસરકારક.</li>
+            </ul>
+            <h3>2️⃣ કુદરતી અને ઓર્ગેનિક ઉપચાર</h3>
+            <ul>
+                <li><strong>નીમ તેલ:</strong> ૫ મિલી નીમ તેલ ૧ લીટર પાણીમાં ભેળવીને છંટકાવ કરો.</li>
+                <li><strong>બેકિંગ સોડા દ્રાવણ:</strong> ૧ ચમચી બેકિંગ સોડા + ૧ ચમચી ડિશ સોપ + ૧ ગેલન પાણી ભેળવીને સ્પ્રે કરો.</li>
+                <li><strong>લસણનો અર્ક:</strong> કુદરતી ફૂગનાશક એજન્ટ.</li>
+            </ul>
+            <h3>3️⃣ નિવારણના ઉત્તમ પગલાં</h3>
+            <ul>
+                <li><strong>છાંટણી અને સફાઈ:</strong> અસરગ્રસ્ત પાંદડા અને શાખાઓ દૂર કરો.</li>
+                <li><strong>રોગપ્રતિકારક જાતો:</strong> લિબરટી, એન્ટરપ્રાઇઝ અને ગોલ્ડ રશ જેવી જાતો ઉછેરો.</li>
+                <li><strong>સૂકાયેલા ફળ દૂર કરો:</strong> ઝાડ અને જમીન પરથી સૂકાયેલા ફળ દૂર કરો.</li>
+            </ul>
+            <video class="treatment-video" controls>
+                <source src="black_rot_treatment_en.mp4" type="video/mp4">
+            </video>
+            <audio class="treatment-audio" controls>
+                <source src="black_rot_treatment_en.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    
+        <!-- Hindi Section -->
+        <div class="language-content" id="hi">
+            <h2>ब्लैक रोट क्या है?</h2>
+            <img class="disease-image" src="uploads/1.png" alt="Black Rot Disease">
+            <p>ब्लैक रोट एक फफूंद जनित रोग है, जो <em>Botryosphaeria obtusa</em> के कारण होता है।</p>
+            <h2>उन्नत उपचार विधियाँ</h2>
+            <h3>1️⃣ रासायनिक उपचार</h3>
+            <ul>
+                <li><strong>फंगीसाइड्स:</strong> केप्टन, थायोफेनेट-मेथिल या माय्क्लोबुटानिल का छिड़काव करें।</li>
+                <li><strong>कॉपर-आधारित स्प्रे:</strong> फंगल स्पोर्स को कम करने के लिए इस्तेमाल करें।</li>
+                <li><strong>प्रिस्टाइन फंगीसाइड:</strong> फलों के संक्रमण के लिए प्रभावी।</li>
+            </ul>
+            <h3>2️⃣ जैविक और प्राकृतिक उपचार</h3>
+            <ul>
+                <li><strong>नीम तेल:</strong> 5 मिली नीम तेल को 1 लीटर पानी में मिलाकर छिड़काव करें।</li>
+                <li><strong>बेकिंग सोडा घोल:</strong> 1 चम्मच बेकिंग सोडा + 1 चम्मच डिश सोप + 1 गैलन पानी मिलाकर स्प्रे करें।</li>
+                <li><strong>लहसुन अर्क:</strong> प्राकृतिक फफूंदनाशक एजेंट।</li>
+            </ul>
+            <h3>3️⃣ रोकथाम के उपाय</h3>
+            <ul>
+                <li><strong>छँटाई और सफाई:</strong> संक्रमित पत्ते और शाखाएँ हटा दें।</li>
+                <li><strong>रोग प्रतिरोधी किस्में:</strong> लिबर्टी, एंटरप्राइज और गोल्डरश जैसी किस्में उगाएँ।</li>
+                <li><strong>सूखे फलों को हटाएँ:</strong> पेड़ और जमीन से ममीफाइड फलों को हटा दें।</li>
+            </ul>
+            <video class="treatment-video" controls>
+                <source src="black_rot_treatment_en.mp4" type="video/mp4">
+            </video>
+            <audio class="treatment-audio" controls>
+                <source src="black_rot_treatment_en.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+    
+
+    <!-- treatment End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>LDRP-ITR</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9104499432</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>plant@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <a class="btn btn-link" href="">Disease Diagnosis</a>
+                    <a class="btn btn-link" href="">Treatment Recommendations</a>
+                    <a class="btn btn-link" href="">Fertilizer Suggestions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="templates\index.html">About Us</a>
+                    <a class="btn btn-link" href="templates\contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="templates\service.html">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a>Plant Doctor</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By team codex</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static\lib\wow\wow.min.js"></script>
+    <script src="static\lib\easing\easing.min.js"></script>
+    <script src="static\lib\waypoints\waypoints.min.js"></script>
+    <script src="static\lib\owlcarousel\owl.carousel.min.js"></script>
+    <script src="static\lib\counterup\counterup.min.js"></script>
+    <script src="static\lib\parallax\parallax.min.js"></script>
+    <script src="static\lib\isotope\isotope.pkgd.min.js"></script>
+    <script src="static\lib\lightbox\js\lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static\js\main.js"></script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".language-switcher button");
+    const languageSections = document.querySelectorAll(".language-content");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const lang = this.getAttribute("data-lang");
+
+            // Hide all sections
+            languageSections.forEach((section) => {
+                section.style.display = "none";
+            });
+
+            // Show only the selected language
+            document.getElementById(lang).style.display = "block";
+        });
+    });
+
+    // Show English by default on page load
+    document.getElementById("en").style.display = "block";
+});
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

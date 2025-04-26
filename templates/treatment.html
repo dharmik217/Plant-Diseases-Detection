@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>plant diseases ditection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static\css\bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static\css\style.css" rel="stylesheet">
+    <style>  
+    /* General Styling */
+
+/* Header Styling */
+.treat-container p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Container Styling */
+.treat-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.treat-container h1 {
+    color: #164300;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+/* Search Bar */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 12px;
+    width: 320px;
+    border: 2px solid #1a430c;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: #1c3b00;
+    box-shadow: 0px 0px 8px rgba(78, 158, 28, 0.5);
+}
+
+/* General Card Container */
+.treat-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Card Styling */
+.disease-card,
+.treat-disease-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    background-color: #f4f9f4;
+}
+
+/* Card Hover Effect (Expand and Show Details) */
+.disease-card:hover,
+.treat-disease-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.disease-card img,
+.treat-disease-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Title Styling */
+.disease-card h3,
+.treat-disease-card h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d84315;
+    margin: 15px 0;
+}
+
+/* Card Description */
+.disease-card p,
+.treat-disease-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* Button Styling */
+.disease-card a,
+.treat-disease-card a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #21600e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.disease-card a:hover,
+.treat-disease-card a:hover {
+    background: #31c41b;
+    transform: scale(1.1);
+}
+
+.disease-card:hover,
+.treat-disease-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.disease-card img,
+.treat-disease-card img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.disease-card:hover img,
+.treat-disease-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Title Styling */
+.disease-card h3,
+.treat-disease-card h3 {
+    margin: 10px 0;
+    color: #d84315;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Paragraph Styling */
+.disease-card p,
+.treat-disease-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Button Styling */
+.disease-card a,
+.treat-disease-card a {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #21600e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.disease-card a:hover,
+.treat-disease-card a:hover {
+    background: #31c41b;
+    transform: scale(1.1);
+}
+
+/* Language Buttons */
+.language-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.language-buttons button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.language-buttons button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: scale(1.05);
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.language-buttons button:active {
+    transform: scale(0.98);
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark text-light px-0 py-2">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <span class="fa fa-phone-alt me-2"></span>
+                    <span>+91 9112391123</span>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <span class="far fa-envelope me-2"></span>
+                    <span>plant@gmail.com</span>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a href="{{ url_for('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="static\img\plant doctor.png" alt="Logo" style="height: 80px; width: 80px; border-radius: 60%; object-fit: cover; margin-right: 5px;">
+            <h1 class="m-0">Plant Doctor</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url_for('home') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-item nav-link">About</a>
+                <a href="{{ url_for('services') }}" class="nav-item nav-link">Services</a>
+                <a href="{{ url_for('predict') }}" class="nav-item nav-link">Predict</a>
+                <a href="{{ url_for('fertilizer') }}" class="nav-item nav-link">Fertilizer</a>
+                <a href="{{ url_for('treatment') }}" class="nav-item nav-link">Treatment</a>
+                <a href="{{ url_for('contact') }}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white mb-4 animated slideInDown">Treatment</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Treatment</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Team Start -->
+
+    <div class="treat-container">
+        <h1>Plant Disease Treatment Guide</h1>
+        <p>Find out what treatment each plant needs!</p>
+    
+        <div class="language-buttons">
+            <button onclick="translateCards('en')">English</button>
+            <button onclick="translateCards('hi')">हिन्दी</button>
+            <button onclick="translateCards('gu')">ગુજરાતી</button>
+        </div>
+    
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for a disease...">
+        </div>
+    
+        <div class="treat-card-container">
+            <div class="disease-card">
+                <img src="static\img\treat.JPG" alt="Apple Scab">
+                <h3 class="title" data-en="Apple Scab" data-hi="एप्पल स्कैब" data-gu="એપલ સ્કેબ">Apple Scab</h3>
+                <p class="description" 
+                    data-en="Apple Scab is a fungal disease caused by Venturia inaequalis. It infects leaves, fruits, and young shoots, leading to dark, scaly lesions, premature leaf drop, and reduced fruit quality."
+                    data-hi="एप्पल स्कैब एक कवक रोग है जो वेंटुरिया इनइक्वालिस के कारण होता है। यह पत्तियों, फलों और नई शाखाओं को संक्रमित करता है, जिससे काले, खुरदरे धब्बे, पत्तों का जल्दी गिरना और फलों की गुणवत्ता में कमी आती है।"
+                    data-gu="એપલ સ્કેબ એ એક ફૂગજન્ય રોગ છે જે વેન્ટુરિયા ઇનઇક્વાલિસ દ્વારા થાય છે. તે પાંદડા, ફળો અને નાની ડાળીઓને સંક્રમિત કરે છે, જે કાળા, ખમિરધારા જેવા ચટકા, વહેલું પાન ખસવું અને ફળોની ગુણવત્તા ઘટાડે છે.">
+                    Apple Scab is a fungal disease caused by Venturia inaequalis. It infects leaves, fruits, and young shoots, leading to dark, scaly lesions, premature leaf drop, and reduced fruit quality.
+                </p>
+                <a href="{{ url_for('scab') }}">More Details</a>
+            </div>
+    
+            <div class="treat-disease-card">
+                <img src="static\img\treat.JPG" alt="Apple Cedar Rust">
+                <h3 class="title" data-en="Apple Cedar Rust" data-hi="एप्पल सीडर रस्ट" data-gu="એપલ સીદાર રસ્ટ">Apple Cedar Rust</h3>
+                <p class="description" 
+                    data-en="Apple Cedar Rust is a fungal disease caused by Gymnosporangium juniperi-virginianae. It affects apple trees and junipers, causing orange spots on leaves and fruit, leading to defoliation and reduced yield."
+                    data-hi="एप्पल सीडर रस्ट एक कवक रोग है जो जिम्नोस्पोरेंजियम जुनिपेरी-वर्जिनियाने के कारण होता है। यह सेब के पेड़ों और जुनिपर को प्रभावित करता है, जिससे पत्तियों और फलों पर नारंगी धब्बे हो जाते हैं, जो पत्तों के गिरने और पैदावार में कमी का कारण बनते हैं।"
+                    data-gu="એપલ સીદાર રસ્ટ એ એક ફૂગજન્ય રોગ છે જે જિમ્નોસ્પોરાંજિયમ જુનિપેરી-વર્જિનિયાને દ્વારા થાય છે. તે એપલ વૃક્ષો અને જુનિપરને અસર કરે છે, જે પાંદડાં અને ફળો પર નારંગી ધબ્બા પેદા કરે છે, જે પાંદડાંના પતન અને ઉત્પાદન ઘટાડવાનું કારણ બને છે.">
+                    Apple Cedar Rust is a fungal disease caused by Gymnosporangium juniperi-virginianae. It affects apple trees and junipers, causing orange spots on leaves and fruit, leading to defoliation and reduced yield.
+                </p>
+                <a href="{{ url_for('cedar') }}">More Details</a>
+            </div>
+    
+            <div class="treat-disease-card">
+                <img src="static\img\treat.JPG" alt="Black Rot">
+                <h3 class="title" data-en="Black Rot" data-hi="ब्लैक रॉट" data-gu="બ્લેક રોટ">Black Rot</h3>
+                <p class="description" 
+                    data-en="Black Rot is a fungal disease caused by Botryosphaeria obtusa. It affects apple trees, leading to circular brown spots on leaves, shriveled fruit, and cankers on branches."
+                    data-hi="ब्लैक रॉट एक कवक रोग है जो बोट्रियोस्फेरिया ओब्टूसा के कारण होता है। यह सेब के पेड़ों को प्रभावित करता है, जिससे पत्तियों पर गोल भूरे धब्बे, सिकुड़े हुए फल और शाखाओं पर कैंकर बनते हैं।"
+                    data-gu="બ્લેક રોટ એ એક ફૂગજન્ય રોગ છે જે બોટ્રિઓસ્ફેરિયા ઓબ્ટૂસા દ્વારા થાય છે. તે એપલ વૃક્ષોને અસર કરે છે, જેના કારણે પાંદડાં પર ગોળી ભૂરા ધબ્બા, સુકાઈ ગયેલા ફળ અને ડાળીઓ પર કેન્કર થાય છે.">
+                    Black Rot is a fungal disease caused by Botryosphaeria obtusa. It affects apple trees, leading to circular brown spots on leaves, shriveled fruit, and cankers on branches.
+                </p>
+                <a href="{{ url_for('black') }}">More Details</a>
+            </div>
+
+            <!-- Corn – Cercospora Leaf Spot / Gray Leaf Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Corn – Cercospora Leaf Spot">
+    <h3 class="title" data-en="Corn – Cercospora Leaf Spot" data-hi="मक्का – सर्कोस्पोरा पत्ती धब्बा" data-gu="મકાઈ – સર્કોસ્પોરા પાન ધબ્બો">Corn – Cercospora Leaf Spot</h3>
+    <p class="description"
+        data-en="Cercospora Leaf Spot, also known as Gray Leaf Spot, is a fungal disease in maize caused by Cercospora zeae-maydis. It results in narrow, rectangular lesions on leaves and reduces photosynthesis."
+        data-hi="सर्कोस्पोरा पत्ती धब्बा, जिसे ग्रे लीफ स्पॉट भी कहा जाता है, मक्का में एक कवक रोग है जो Cercospora zeae-maydis के कारण होता है। यह पत्तियों पर संकीर्ण, आयताकार घाव बनाता है और प्रकाश संश्लेषण को कम करता है।"
+        data-gu="સર્કોસ્પોરા પાન ધબ્બો, જેને ગ્રે લીફ સ્પોટ પણ કહે છે, એ મકાઈનો એક ફૂગજન્ય રોગ છે જે Cercospora zeae-maydis દ્વારા થાય છે. તે પાંદડાં પર સાંકડી ચોરસ આકારની ગરદાણીઓ પેદા કરે છે અને પ્રકાશ સંશ્લેષણ ઘટાડે છે.">
+        Cercospora Leaf Spot, also known as Gray Leaf Spot, is a fungal disease in maize caused by <i>Cercospora zeae-maydis</i>.
+    </p>
+    <a href="{{ url_for('Grayleaf') }}">More Details</a>
+</div>
+
+<!-- Corn – Common Rust -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Corn – Common Rust">
+    <h3 class="title" data-en="Corn – Common Rust" data-hi="मक्का – कॉमन रस्ट" data-gu="મકાઈ – સામાન્ય જંગ">Corn – Common Rust</h3>
+    <p class="description"
+        data-en="Common Rust of corn is caused by the fungus Puccinia sorghi. It forms reddish to brown pustules on both leaf surfaces, which can lead to reduced plant vigor and yield loss."
+        data-hi="मकई की कॉमन रस्ट एक कवक Puccinia sorghi के कारण होती है। यह पत्तियों की दोनों सतहों पर लाल-भूरे फुंसी जैसे धब्बे बनाता है, जिससे पौधों की ताकत और उपज में कमी आ सकती है।"
+        data-gu="મકાઈમાં સામાન્ય જંગ ફૂગ Puccinia sorghi દ્વારા થાય છે. તે પાંદડાંની બંને બાજુ લાલથી ભૂરા ફોલ્લા બનાવે છે, જેના કારણે વનસ્પતિની શક્તિ અને ઉપજ ઘટે છે.">
+        Common Rust of corn is caused by the fungus <i>Puccinia sorghi</i> and leads to pustule formation on leaves.
+    </p>
+    <a href="{{ url_for('CommonRust') }}">More Details</a>
+</div>
+
+<!-- Corn – Northern Leaf Blight -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Corn – Northern Leaf Blight">
+    <h3 class="title" data-en="Corn – Northern Leaf Blight" data-hi="मक्का – नॉर्दर्न लीफ ब्लाइट" data-gu="મકાઈ – નૉર્ધર્ન લીફ બ્લાઇટ">Corn – Northern Leaf Blight</h3>
+    <p class="description"
+        data-en="Northern Leaf Blight is caused by the fungus Exserohilum turcicum. It creates long, elliptical gray-green lesions on leaves and may lead to severe yield loss in maize."
+        data-hi="नॉर्दर्न लीफ ब्लाइट एक कवक Exserohilum turcicum के कारण होता है। यह पत्तियों पर लंबे, अंडाकार, धूसर-हरे घाव बनाता है और मक्के की उपज को गंभीर रूप से प्रभावित कर सकता है।"
+        data-gu="નૉર્ધર્ન લીફ બ્લાઇટ એ ફૂગ Exserohilum turcicum દ્વારા થાય છે. તે પાંદડાં પર લાંબા, અંડાકાર, કરડા લીલા ઘા પેદા કરે છે અને ઉપજ ઘટાડે છે.">
+        Northern Leaf Blight is a fungal disease caused by <i>Exserohilum turcicum</i>, creating elongated lesions on maize leaves.
+    </p>
+    <a href="{{ url_for('NorthernLeaf') }}">More Details</a>
+</div>
+
+<!-- Corn – Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Corn – Healthy">
+    <h3 class="title" data-en="Corn – Healthy" data-hi="मक्का – स्वस्थ" data-gu="મકાઈ – સ્વસ્થ">Corn – Healthy</h3>
+    <p class="description"
+        data-en="A healthy corn plant has vibrant green leaves, a strong stalk, and no visible signs of disease or pest damage. It produces a good yield with proper care."
+        data-hi="एक स्वस्थ मक्का का पौधा चमकदार हरे पत्तों वाला, मजबूत तना वाला होता है, और इसमें किसी भी रोग या कीट क्षति के लक्षण नहीं होते हैं। यह उचित देखभाल के साथ अच्छी उपज देता है।"
+        data-gu="સ્વસ્થ મકાઈના છોડમાં તંદુરસ્ત લીલાં પાંદડાં, મજબૂત કાંઠો અને રોગ અથવા જીવાતનું કોઈ નિશાન હોવું જોઈએ નહીં. યોગ્ય કાળજીથી તે સારી ઉપજ આપે છે.">
+        Healthy corn shows no disease symptoms and produces strong, green, high-yielding plants.
+    </p>
+    <a href="{{ url_for('CornHealthy') }}">More Details</a>
+</div>
+
+<!-- Grape — Black Rot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Black Rot">
+    <h3 class="title" data-en="Grape Black Rot" data-hi="ब्लैक रॉट" data-gu="બ્લેક રોટ">Black Rot</h3>
+    <p class="description"
+        data-en="Black Rot is caused by the fungus <i>Guignardia bidwellii</i>. It causes dark, sunken lesions on grapes, leading to rotting and shriveling of the fruit."
+        data-hi="ब्लैक रॉट एक कवक <i>Guignardia bidwellii</i> द्वारा होता है। यह अंगूर पर काले, धंसे हुए घाव पैदा करता है, जिससे फल सड़ने और सिकुड़ने लगते हैं।"
+        data-gu="બ્લેક રોટ એ ફૂગ <i>Guignardia bidwellii</i> દ્વારા થાય છે. તે દ્રાક્ષ પર કાળા, ધંસેલા ઘા બનાવે છે, જેના પરિણામે ફળ સડી જાય છે અને કચૂકી જાય છે।">
+        Black Rot is a fungal disease caused by <i>Guignardia bidwellii</i>, creating dark lesions on grapes.
+    </p>
+    <a href="{{ url_for('GrapeBlackRot') }}">More Details</a>
+</div>
+
+<!-- Grape — Esca (Black Measles) -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Esca (Black Measles)">
+    <h3 class="title" data-en="Esca (Black Measles)" data-hi="एस्का (ब्लैक मीज़ल्स)" data-gu="એસ્કા (બ્લેક મીઝલ્સ)">Esca (Black Measles)</h3>
+    <p class="description"
+        data-en="Esca is a fungal disease caused by <i>Phaeoacremonium</i> and <i>Phaeomoniella</i>, leading to necrotic lesions on grapevines, which affects the quality of the fruit."
+        data-hi="एस्का एक कवक रोग है जो <i>Phaeoacremonium</i> और <i>Phaeomoniella</i> द्वारा होता है, जिससे अंगूर के बेलों पर मृत घाव बनते हैं, जो फल की गुणवत्ता को प्रभावित करते हैं।"
+        data-gu="એસ્કા એ ફૂગજન્ય રોગ છે જે <i>Phaeoacremonium</i> અને <i>Phaeomoniella</i> દ્વારા થાય છે, જેના કારણે દ્રાક્ષના વાણાં પર મરી ગાટી બની જાય છે, જે ફળની ગુણવત્તાને અસર કરે છે।">
+        Esca is a fungal disease caused by <i>Phaeoacremonium</i> and <i>Phaeomoniella</i>, causing necrotic lesions on grapevines.
+    </p>
+    <a href="{{ url_for('GrapeEsca') }}">More Details</a>
+</div>
+
+<!-- Grape — Leaf Blight (Isariopsis Leaf Spot) -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Leaf Blight (Isariopsis Leaf Spot)">
+    <h3 class="title" data-en="Leaf Blight (Isariopsis Leaf Spot)" data-hi="पत्तों का मुरझाना (इसारियोसिस पत्ते के धब्बे)" data-gu="પાંદડાંનું દુર્બલ બનવું (ઇસારિયોપસ પત્તાની ચૂટ)">Leaf Blight (Isariopsis Leaf Spot)</h3>
+    <p class="description"
+        data-en="Leaf Blight is caused by the fungus <i>Isariopsis capensis</i>, leading to angular lesions with dark borders on grape leaves, causing premature leaf drop."
+        data-hi="पत्तों का मुरझाना एक कवक <i>Isariopsis capensis</i> द्वारा होता है, जो अंगूर के पत्तों पर अंधेरे किनारों के साथ कोणीय घाव बनाता है, जिससे पत्तियां समय से पहले गिर जाती हैं।"
+        data-gu="પાંદડાંનું દુર્બલ બનવું એ ફૂગ <i>Isariopsis capensis</i> દ્વારા થાય છે, જે દ્રાક્ષના પાંદડાં પર અંધારા સીમાઓ સાથે ખૂણાની ઘા બનાવે છે, જેના કારણે પાંદડાં સમયથી પહેલાં ઝરપી જાય છે।">
+        Leaf Blight is a fungal disease caused by <i>Isariopsis capensis</i>, creating angular lesions on grape leaves.
+    </p>
+    <a href="{{ url_for('GrapeBlight') }}">More Details</a>
+</div>
+
+<!-- Grape — Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Healthy Grapes">
+    <h3 class="title" data-en="Healthy Grapes" data-hi="स्वस्थ अंगूर" data-gu="સ્વસ્થ દ્રાક્ષ">Healthy Grapes</h3>
+    <p class="description"
+        data-en="Healthy grapes are free from diseases and pests, showing vibrant leaves and well-formed, unblemished fruit."
+        data-hi="स्वस्थ अंगूर रोगों और कीटों से मुक्त होते हैं, जो जीवंत पत्तियों और सही आकार के, बिना धब्बों वाले फलों को दिखाते हैं।"
+        data-gu="સ્વસ્થ દ્રાક્ષ રોગો અને કીટકોથી મુક્ત હોય છે, જે જીવંત પાંદડાં અને યોગ્ય આકારના, માનીથી મુક્ત ફળો બતાવે છે।">
+        Healthy grapes are free from diseases and pests, with vibrant leaves and unblemished fruit.
+    </p>
+    <a href="{{ url_for('GrapeHealthy') }}">More Details</a>
+</div>
+
+<!-- Tomato — Bacterial Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Bacterial Spot">
+    <h3 class="title" data-en="Bacterial Spot" data-hi="बैक्टीरियल स्पॉट" data-gu="બેક્ટેરિયલ સ્પોટ">Bacterial Spot</h3>
+    <p class="description"
+        data-en="Bacterial Spot is caused by <i>Xanthomonas campestris</i>, leading to small, dark lesions on tomato leaves, stems, and fruit."
+        data-hi="बैक्टीरियल स्पॉट <i>Xanthomonas campestris</i> द्वारा होता है, जो टमाटर के पत्तों, तनों और फलों पर छोटे, काले घाव बनाता है।"
+        data-gu="બેક્ટેરિયલ સ્પોટ એ <i>Xanthomonas campestris</i> દ્વારા થાય છે, જે ટમેટા પાંદડાં, ગરછા અને ફળોમાં નાનું, કાળી ઘા બનાવે છે।">
+        Bacterial Spot is caused by <i>Xanthomonas campestris</i>, creating dark lesions on tomato plants.
+    </p>
+    <a href="{{ url_for('TomatoBacterial') }}">More Details</a>
+</div>
+
+<!-- Tomato — Early Blight -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Early Blight">
+    <h3 class="title" data-en="Early Blight" data-hi="अर्ली ब्लाइट" data-gu="અર્લી બ્લાઇટ">Early Blight</h3>
+    <p class="description"
+        data-en="Early Blight is caused by the fungus <i>Alternaria solani</i>, leading to dark, circular lesions on tomato leaves and stems."
+        data-hi="अर्ली ब्लाइट एक कवक <i>Alternaria solani</i> द्वारा होता है, जो टमाटर के पत्तों और तनों पर काले, गोल घाव बनाता है।"
+        data-gu="અર્લી બ્લાઇટ એ ફૂગ <i>Alternaria solani</i> દ્વારા થાય છે, જે ટમેટા પાંદડાં અને ગરછા પર કાળા, ગોળ ઘા બનાવે છે।">
+        Early Blight is a fungal disease caused by <i>Alternaria solani</i>, creating circular lesions on tomato plants.
+    </p>
+    <a href="{{ url_for('TomatoEarlyBlight') }}">More Details</a>
+</div>
+
+<!-- Tomato — Late Blight -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Late Blight">
+    <h3 class="title" data-en="Late Blight" data-hi="लेट ब्लाइट" data-gu="લેટ બ્લાઇટ">Late Blight</h3>
+    <p class="description"
+        data-en="Late Blight is caused by the fungus <i>Phytophthora infestans</i>, leading to large, irregular, water-soaked lesions on tomato leaves, stems, and fruit."
+        data-hi="लेट ब्लाइट एक कवक <i>Phytophthora infestans</i> द्वारा होता है, जो टमाटर के पत्तों, तनों और फलों पर बड़े, अनियमित, पानी से सिक्त घाव बनाता है।"
+        data-gu="લેટ બ્લાઇટ એ ફૂગ <i>Phytophthora infestans</i> દ્વારા થાય છે, જે ટમેટા પાંદડાં, ગરછા અને ફળોમાં મોટા, અનિયમિત, પાણીથી ભરેલા ઘા બનાવે છે।">
+        Late Blight is caused by <i>Phytophthora infestans</i>, creating irregular, water-soaked lesions on tomato plants.
+    </p>
+    <a href="{{ url_for('TomatoLateBlight') }}">More Details</a>
+</div>
+
+<!-- Tomato — Leaf Mold -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Leaf Mold">
+    <h3 class="title" data-en="Leaf Mold" data-hi="लीफ मोल्ड" data-gu="લીફ મોલ્ડ">Leaf Mold</h3>
+    <p class="description"
+        data-en="Leaf Mold is caused by the fungus <i>Passalora fulva</i>, which causes yellowing of the leaves and a grayish mold on the undersides."
+        data-hi="लीफ मोल्ड एक कवक <i>Passalora fulva</i> द्वारा होता है, जो पत्तियों का पीलापन और नीचे की तरफ धूसर मोल्ड पैदा करता है।"
+        data-gu="લીફ મોલ્ડ એ ફૂગ <i>Passalora fulva</i> દ્વારા થાય છે, જે પાંદડાંનું પીલાશ અને નીચેની બાજુ પર ધૂસર મોલ્ડ બનાવે છે।">
+        Leaf Mold is caused by <i>Passalora fulva</i>, leading to yellowing leaves and a grayish mold on the undersides.
+    </p>
+    <a href="{{ url_for('TomatoLeafMold') }}">More Details</a>
+</div>
+
+<!-- Tomato — Septoria Leaf Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Septoria Leaf Spot">
+    <h3 class="title" data-en="Septoria Leaf Spot" data-hi="सेप्टोरिया लीफ स्पॉट" data-gu="સેપ્ટોરિયા લીફ સ્પોટ">Septoria Leaf Spot</h3>
+    <p class="description"
+        data-en="Septoria Leaf Spot is caused by the fungus <i>Septoria lycopersici</i>, creating small, circular lesions with dark borders on tomato leaves."
+        data-hi="सेप्टोरिया लीफ स्पॉट एक कवक <i>Septoria lycopersici</i> द्वारा होता है, जो टमाटर के पत्तों पर छोटे, गोल घाव बनाता है, जिनके चारों ओर काले किनारे होते हैं।"
+        data-gu="સેપ્ટોરિયા લીફ સ્પોટ એ ફૂગ <i>Septoria lycopersici</i> દ્વારા થાય છે, જે ટમેટા પાંદડાં પર નાનું, ગોળ ઘા બનાવે છે, જેના ચારિયે કાળા બોર્ડર હોય છે।">
+        Septoria Leaf Spot is caused by <i>Septoria lycopersici</i>, creating small, dark-bordered lesions on tomato leaves.
+    </p>
+    <a href="{{ url_for('TomatoSeptoriaLeaf') }}">More Details</a>
+</div>
+
+<!-- Tomato — Spider Mites (Two-spotted Spider Mite) -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Spider Mites (Two-spotted Spider Mite)">
+    <h3 class="title" data-en="Spider Mites (Two-spotted Spider Mite)" data-hi="स्पाइडर माइट्स (टू-स्पॉटेड स्पाइडर माइट)" data-gu="સ્પાઇડર માઇટ્સ (ટૂ-સ્પોટેડ સ્પાઇડર માઇટ)">Spider Mites (Two-spotted Spider Mite)</h3>
+    <p class="description"
+        data-en="Spider Mites, especially the Two-spotted Spider Mite, cause stippling on tomato leaves, with yellow or white spots and webbing."
+        data-hi="स्पाइडर माइट्स, खासकर टू-स्पॉटेड स्पाइडर माइट, टमाटर के पत्तों पर बिंदीदार धब्बे उत्पन्न करते हैं, जिनमें पीले या सफेद धब्बे और जाले होते हैं।"
+        data-gu="સ્પાઇડર માઇટ્સ, ખાસ કરીને ટૂ-સ્પોટેડ સ્પાઇડર માઇટ, ટમેટા પાંદડાં પર છિદ્ર બનાવે છે, જેમાં પીળા અથવા સફેદ ધબ્બો અને જાલા હોય છે।">
+        Spider Mites cause stippling on tomato leaves, leading to yellow spots and webbing.
+    </p>
+    <a href="{{ url_for('TomatoSpiderMites') }}">More Details</a>
+</div>
+
+<!-- Tomato — Target Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Target Spot">
+    <h3 class="title" data-en="Target Spot" data-hi="टार्गेट स्पॉट" data-gu="ટાર્ગેટ સ્પોટ">Target Spot</h3>
+    <p class="description"
+        data-en="Target Spot is caused by <i>Neofusicoccum spp.</i>, leading to concentric, dark lesions with lighter centers on tomato leaves."
+        data-hi="टार्गेट स्पॉट <i>Neofusicoccum spp.</i> द्वारा होता है, जो टमाटर के पत्तों पर हलके केंद्रों वाले गहरे घाव बनाता है।"
+        data-gu="ટાર્ગેટ સ્પોટ એ <i>Neofusicoccum spp.</i> દ્વારા થાય છે, જે ટમેટા પાંદડાં પર હળવા મક્કા સાથે ગાઢ ઘા બનાવે છે।">
+        Target Spot is caused by <i>Neofusicoccum spp.</i>, leading to dark lesions with light centers on tomato leaves.
+    </p>
+    <a href="{{ url_for('TomatoTargetSpot') }}">More Details</a>
+</div>
+
+<!-- Tomato — Tomato Yellow Leaf Curl Virus -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Tomato Yellow Leaf Curl Virus">
+    <h3 class="title" data-en="Tomato Yellow Leaf Curl Virus" data-hi="टमाटर येलो लीफ कर्ल वायरस" data-gu="ટમેટા યેલ્લો લીફ કર્લ વાયરસ">Tomato Yellow Leaf Curl Virus</h3>
+    <p class="description"
+        data-en="Tomato Yellow Leaf Curl Virus (TYLCV) causes curling of leaves, yellowing, and stunted growth in tomato plants."
+        data-hi="टमाटर येलो लीफ कर्ल वायरस (TYLCV) पत्तियों का कर्लिंग, पीलापन और टमाटर पौधों की अवरुद्ध वृद्धि का कारण बनता है।"
+        data-gu="ટમેટા યેલ્લો લીફ કર્લ વાયરસ (TYLCV) પાંદડાંના કર્લિંગ, પીળાશ અને ટમેટા છોડના થમ્બિંગ વૃદ્ધિનું કારણ બને છે।">
+        Tomato Yellow Leaf Curl Virus causes yellowing and curling of tomato leaves, stunted growth, and yield reduction.
+    </p>
+    <a href="{{ url_for('TomatoYellowLeaf') }}">More Details</a>
+</div>
+
+<!-- Tomato — Tomato Mosaic Virus -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Tomato Mosaic Virus">
+    <h3 class="title" data-en="Tomato Mosaic Virus" data-hi="टमाटर मोज़ैक वायरस" data-gu="ટમેટા મોઝેક વાયરસ">Tomato Mosaic Virus</h3>
+    <p class="description"
+        data-en="Tomato Mosaic Virus causes mottling, mosaic patterns on the leaves, and stunted plant growth in tomatoes."
+        data-hi="टमाटर मोज़ैक वायरस पत्तियों पर मॉटलिंग, मोज़ैक पैटर्न और टमाटर पौधों की अवरुद्ध वृद्धि का कारण बनता है।"
+        data-gu="ટમેટા મોઝેક વાયરસ પાંદડાં પર મોંટીંગ, મોઝેક પેટર્ન અને ટમેટા છોડની થમ્બિંગ વૃદ્ધિનું કારણ બને છે।">
+        Tomato Mosaic Virus causes mottling and stunted growth in tomato plants.
+    </p>
+    <a href="{{ url_for('TomatoMosaicVirus') }}">More Details</a>
+</div>
+
+<!-- Tomato — Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Healthy Tomato">
+    <h3 class="title" data-en="Healthy Tomato" data-hi="स्वस्थ टमाटर" data-gu="સ્વસ્થ ટમેટા">Healthy Tomato</h3>
+    <p class="description"
+        data-en="Healthy tomato plants have vibrant leaves, sturdy stems, and well-formed, unblemished fruit."
+        data-hi="स्वस्थ टमाटर के पौधों में जीवंत पत्तियां, मजबूत तने और अच्छी तरह से बने, बिना धब्बों वाले फल होते हैं।"
+        data-gu="સ્વસ્થ ટમેટા છોડમાં જીવંત પાંદડાં, મજબૂત તણખા અને મજબૂતીથી બનાવેલા, માનીથી મુક્ત ફળ હોય છે।">
+        Healthy tomato plants are disease-free, with vibrant leaves and unblemished fruit.
+    </p>
+    <a href="{{ url_for('TomatoHealthy') }}">More Details</a>
+</div>
+
+<!-- Peach — Bacterial Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Bacterial Spot">
+    <h3 class="title" data-en="Bacterial Spot" data-hi="बैक्टीरियल स्पॉट" data-gu="બેક્ટેરિયલ સ્પોટ">Bacterial Spot</h3>
+    <p class="description"
+        data-en="Bacterial Spot is caused by <i>Xanthomonas pruni</i>, leading to dark, angular lesions on peach leaves, causing premature leaf drop."
+        data-hi="बैक्टीरियल स्पॉट <i>Xanthomonas pruni</i> द्वारा होता है, जो पीच के पत्तों पर काले, कोणीय घाव बनाता है, जिससे पत्तियां समय से पहले गिर जाती हैं।"
+        data-gu="બેક્ટેરિયલ સ્પોટ એ <i>Xanthomonas pruni</i> દ્વારા થાય છે, જે પેચના પાંદડાં પર કાળા, ખૂણાની ઘા બનાવે છે, જેના કારણે પાંદડાં સમયથી પહેલાં ઝરપી જાય છે।">
+        Bacterial Spot is caused by <i>Xanthomonas pruni</i>, creating dark lesions on peach leaves.
+    </p>
+    <a href="{{ url_for('PeachBacterial') }}">More Details</a>
+</div>
+
+<!-- Peach — Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Healthy Peach">
+    <h3 class="title" data-en="Healthy Peach" data-hi="स्वस्थ आड़ू" data-gu="સ્વસ્થ આડો">Healthy Peach</h3>
+    <p class="description"
+        data-en="Healthy peaches are free from diseases, with vibrant green leaves and well-formed, juicy fruit."
+        data-hi="स्वस्थ आड़ू रोगों से मुक्त होते हैं, जिनकी पत्तियाँ हरी-भरी होती हैं और फल अच्छे से विकसित और रसीले होते हैं।"
+        data-gu="સ્વસ્થ આડો રોગોથી મુક્ત હોય છે, જેમાં પાંદડાં લાઇટ અને પુરી રીતે બનેલ અને રસદાર ફળ હોય છે।">
+        Healthy peaches are disease-free, with vibrant green leaves and well-formed, juicy fruit.
+    </p>
+    <a href="{{ url_for('PeachHealthy') }}">More Details</a>
+</div>
+
+<!-- Pepper (Bell) — Bacterial Spot -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Bacterial Spot">
+    <h3 class="title" data-en="Bacterial Spot" data-hi="बैक्टीरियल स्पॉट" data-gu="બેક્ટેરિયલ સ્પોટ">Bacterial Spot</h3>
+    <p class="description"
+        data-en="Bacterial Spot in bell peppers is caused by <i>Xanthomonas campestris</i>, causing dark lesions with yellow halos on the leaves."
+        data-hi="बैक्टीरियल स्पॉट बेल मिर्च में <i>Xanthomonas campestris</i> द्वारा होता है, जो पत्तियों पर काले धब्बे बनाता है, जिनके चारों ओर पीले घेरे होते हैं।"
+        data-gu="બેક્ટેરિયલ સ્પોટ બેલ મિર્ચમાં <i>Xanthomonas campestris</i> દ્વારા થાય છે, જે પાંદડાં પર કાળા ઘા બનાવે છે, જેના ચારિયે પીળા ઘેટા હોય છે।">
+        Bacterial Spot in bell peppers is caused by <i>Xanthomonas campestris</i>, creating dark lesions with yellow halos.
+    </p>
+    <a href="{{ url_for('PepperBacterial') }}">More Details</a>
+</div>
+
+<!-- Pepper (Bell) — Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Healthy Pepper">
+    <h3 class="title" data-en="Healthy Pepper" data-hi="स्वस्थ शिमला मिर्च" data-gu="સ્વસ્થ બેલ મિર્ચ">Healthy Pepper</h3>
+    <p class="description"
+        data-en="Healthy bell peppers have vibrant green leaves and robust, colorful fruit."
+        data-hi="स्वस्थ शिमला मिर्च में हरी-भरी पत्तियाँ और मजबूत, रंगीन फल होते हैं।"
+        data-gu="સ્વસ્થ બેલ મિર્ચમાં લાઇટ પાંદડાં અને મજબૂત, રંગીન ફળ હોય છે।">
+        Healthy bell peppers are free from diseases, with vibrant leaves and well-formed, colorful fruit.
+    </p>
+    <a href="{{ url_for('PepperHealthy') }}">More Details</a>
+</div>
+
+<!-- Potato — Early Blight -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Early Blight">
+    <h3 class="title" data-en="Early Blight" data-hi="अर्ली ब्लाइट" data-gu="અર્લી બ્લાઇટ">Early Blight</h3>
+    <p class="description"
+        data-en="Early Blight in potatoes is caused by the fungus <i>Alternaria solani</i>, causing dark lesions with concentric rings on leaves."
+        data-hi="अर्ली ब्लाइट आलू में <i>Alternaria solani</i> द्वारा होता है, जो पत्तियों पर गोलाकार रिंग के साथ काले घाव बनाता है।"
+        data-gu="અર્લી બ્લાઇટ બટેટામાં <i>Alternaria solani</i> દ્વારા થાય છે, જે પાંદડાં પર ગોળાકાર રીંગ સાથે કાળા ઘા બનાવે છે।">
+        Early Blight is caused by the fungus <i>Alternaria solani</i>, creating dark lesions with concentric rings on potato leaves.
+    </p>
+    <a href="{{ url_for('PotatoEarlyBlight') }}">More Details</a>
+</div>
+
+<!-- Potato — Late Blight -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Late Blight">
+    <h3 class="title" data-en="Late Blight" data-hi="लेट ब्लाइट" data-gu="લેટ બ્લાઇટ">Late Blight</h3>
+    <p class="description"
+        data-en="Late Blight in potatoes is caused by the fungus <i>Phytophthora infestans</i>, leading to large, water-soaked lesions on the leaves."
+        data-hi="लेट ब्लाइट आलू में <i>Phytophthora infestans</i> द्वारा होता है, जो पत्तियों पर बड़े, पानी से सिक्त घाव बनाता है।"
+        data-gu="લેટ બ્લાઇટ બટેટામાં <i>Phytophthora infestans</i> દ્વારા થાય છે, જે પાંદડાં પર મોટા, પાણીથી ભરી ઘા બનાવે છે।">
+        Late Blight is caused by the fungus <i>Phytophthora infestans</i>, causing water-soaked lesions on potato leaves.
+    </p>
+    <a href="{{ url_for('PotatoLateBlight') }}">More Details</a>
+</div>
+
+<!-- Potato — Healthy -->
+<div class="treat-disease-card">
+    <img src="static/img/treat.JPG" alt="Healthy Potato">
+    <h3 class="title" data-en="Healthy Potato" data-hi="स्वस्थ आलू" data-gu="સ્વસ્થ બટેટા">Healthy Potato</h3>
+    <p class="description"
+        data-en="Healthy potatoes are free from diseases, with strong, green leaves and robust tubers."
+        data-hi="स्वस्थ आलू रोगों से मुक्त होते हैं, जिनकी पत्तियाँ हरी-भरी होती हैं और कंद मजबूत होते हैं।"
+        data-gu="સ્વસ્થ બટેટા રોગોથી મુક્ત હોય છે, જેમાં મજબૂત, લીલા પાંદડાં અને મજબૂત કંદ હોય છે।">
+        Healthy potatoes are disease-free, with strong leaves and robust tubers.
+    </p>
+    <a href="{{ url_for('PotatoHealthy') }}">More Details</a>
+</div>
+
+<!-- 🍓 Strawberry – Leaf Scorch -->
+<div class="treat-disease-card">
+    <img src="static\img\treat.jpg" alt="Leaf Scorch">
+    <h3 class="title" data-en="Leaf Scorch" data-hi="लीफ स्कॉर्च" data-gu="લીફ સ્કોર્ચ">Leaf Scorch</h3>
+    <p class="description"
+        data-en="Leaf Scorch in strawberries is caused by the fungus <i>Diplocarpon earlianum</i>, resulting in dark purple spots and dried, scorched leaves."
+        data-hi="स्ट्रॉबेरी में लीफ स्कॉर्च <i>Diplocarpon earlianum</i> फफूंद से होता है, जिससे गहरे बैंगनी धब्बे और जली हुई पत्तियाँ बनती हैं।"
+        data-gu="સ્ટ્રોબેરીમાં લીફ સ્કોર્ચ <i>Diplocarpon earlianum</i> ફૂગથી થાય છે, જેના કારણે ગાઢ જાંબલી ધબ્બા અને સુકી, બળી ગયેલી પાંદડીઓ થાય છે.">
+        Leaf Scorch in strawberries is caused by the fungus <i>Diplocarpon earlianum</i>, leading to purple spots and scorched foliage.
+    </p>
+    <a href="{{ url_for('StrawberryLeafScorch') }}">More Details</a>
+</div>
+
+<!-- 🍓 Strawberry – Healthy -->
+<div class="treat-disease-card">
+    <img src="static\img\treat.jpg" alt="Healthy Strawberry">
+    <h3 class="title" data-en="Healthy" data-hi="स्वस्थ" data-gu="તંદુરસ્ત">Healthy</h3>
+    <p class="description"
+        data-en="The strawberry plant is healthy with no visible signs of disease or damage."
+        data-hi="स्ट्रॉबेरी का पौधा स्वस्थ है और इसमें किसी रोग या क्षति के कोई संकेत नहीं हैं।"
+        data-gu="સ્ટ્રોબેરીનું છોડ તંદુરસ્ત છે અને તેમાં કોઈ રોગ કે નુકસાનના લક્ષણો દેખાતા નથી.">
+        The strawberry plant is healthy with no visible signs of disease or damage.
+    </p>
+    <a href="{{ url_for('StrawberryHealthy') }}">More Details</a>
+</div>
+
+
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Gandhinagar</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 91123 91123</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>plant@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <a class="btn btn-link" href="{{ url_for('predict') }}">Disease Diagnosis</a>
+                    <a class="btn btn-link" href="{{ url_for('treatment') }}">Treatment Recommendations</a>
+                    <a class="btn btn-link" href="{{ url_for('fertilizer') }}">Fertilizer Suggestions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="{{ url_for('about') }}">About Us</a>
+                    <a class="btn btn-link" href="{{ url_for('contact') }}">Contact Us</a>
+                    <a class="btn btn-link" href="{{ url_for('services') }}">Our Services</a>
+                    <a class="btn btn-link" href="{{ url_for('contact') }}">Support</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a>Plant Doctor</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By team codex</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static\lib\wow\wow.min.js"></script>
+    <script src="static\lib\easing\easing.min.js"></script>
+    <script src="static\lib\waypoints\waypoints.min.js"></script>
+    <script src="static\lib\owlcarousel\owl.carousel.min.js"></script>
+    <script src="static\lib\counterup\counterup.min.js"></script>
+    <script src="static\lib\parallax\parallax.min.js"></script>
+    <script src="static\lib\isotope\isotope.pkgd.min.js"></script>
+    <script src="static\lib\lightbox\js\lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static\js\main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('searchInput').addEventListener('input', function () {
+                let input = this.value.toLowerCase(); // Get search input value
+                let cards = document.querySelectorAll('.treat-disease-card, .disease-card'); // Select all disease cards
+    
+                cards.forEach(card => {
+                    let title = card.querySelector('h3').innerText.toLowerCase(); // Get the card title text
+    
+                    if (title.includes(input)) {
+                        card.style.display = "block"; // Show matching card
+                    } else {
+                        card.style.display = "none"; // Hide non-matching card
+                    }
+                });
+            });
+        });
+        function translateCards(language) {
+        let titles = document.querySelectorAll(".title");
+        let descriptions = document.querySelectorAll(".description");
+
+        titles.forEach(title => {
+            title.innerText = title.getAttribute(`data-${language}`);
+        });
+
+        descriptions.forEach(desc => {
+            desc.innerText = desc.getAttribute(`data-${language}`);
+        });
+    }
+    </script>
+    
+</body>
+
+</html>

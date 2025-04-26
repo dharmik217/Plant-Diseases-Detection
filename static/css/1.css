@@ -1,0 +1,58 @@
+
+/* Title Styling */
+.card h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Controls Styling */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #007bff;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Button Styling */
+
+/* Image Preview Styling */
+.upload-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#preview-image {
+  max-width: 200%;
+  height: auto;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 50%;
+}
+
+/* Prediction Result Box Styling */
+.result-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #28a745;
+  border-radius: 10px;
+  background-color: #e9f8ec;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-box h3 {
+  font-size: 22px;
+  color: #155724;
+  margin-bottom: 10px;
+}
+
+.result-box p {
+  font-size: 18px;
+  color: #155724;
+}
+
+/*transelate*/
+
+#prediction-result { display: none; border: 1px solid #ddd; padding: 10px; margin-top: 10px; }
+.translate-btn { margin: 5px; cursor: pointer; padding: 5px 10px; background: #397607; color: white; border: none; }

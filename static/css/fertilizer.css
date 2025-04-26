@@ -1,0 +1,162 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background:  #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.fertilizer {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    color: #2d572c;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.search-fz {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-fz input {
+    padding: 12px;
+    width: 300px;
+    border: 2px solid #2d572c;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-fz input:focus {
+    box-shadow: 0 0 8px rgba(45, 87, 44, 0.5);
+}
+
+.search-btn {
+    padding: 12px;
+    margin-left: 10px;
+    border: none;
+    background: #2d572c;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:hover {
+    background: #256b2e;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.results-fz {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background: linear-gradient(135deg, #b9ff93, #ffffff);
+    width: 200px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    border-color: #2d572c;
+}
+
+.details {
+    display: none;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Ensure the details appear when the card is expanded */
+.card.expanded {
+    width: auto; /* Let it adjust based on content */
+    max-width: 400px; /* Prevent it from becoming too wide */
+    padding: 25px;
+    transform: scale(1.1);
+    box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card.expanded .details {
+    display: block;
+}
+
+/* More Details Button */
+.details-button {
+    padding: 10px 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    background: #098d00;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    display: block; /* Ensure it stays centered */
+    width: 100%; /* Make it fill the width */
+    max-width: 150px; /* Limit its max size */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+/* Button Hover Effect */
+.details-button:hover {
+    background: #23cf00;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrow Indicator */
+
+
+/* Change button color and arrow when expanded */
+.card.expanded .details-button {
+    background-color: #e68900;
+}
+
+
+/* Language Selection Buttons */
+.language-selection button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    background: #098d00;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.language-selection button:hover {
+    background: #9cca8c;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}

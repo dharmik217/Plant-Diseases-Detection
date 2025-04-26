@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+.plant-card {
+    display: none;
+    transition: transform 0.2s;
+}
+.plant-card:hover {
+    transform: scale(1.05);
+}
+.plant-details {
+    display: none;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
